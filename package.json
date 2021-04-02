@@ -1,10 +1,10 @@
 {
-  "name": "whale-ui",
+  "name": "pro-whale-ui",
   "version": "0.1.0",
-  "private": true,
+  "main": "dist/pro-whale-ui.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib --name whale-ui src/main.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

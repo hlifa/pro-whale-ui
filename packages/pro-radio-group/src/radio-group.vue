@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-26 15:30:01
- * @LastEditTime: 2021-04-01 20:30:44
+ * @LastEditTime: 2021-04-02 11:22:18
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/packages/pro-radio-group/src/radio-group.vue
@@ -36,7 +36,6 @@
     </template>
   </el-radio-group>
 </template>
-
 
 <script>
 import { isFunction, isArray } from "@/utils/types";
@@ -80,7 +79,6 @@ export default {
           this.resolvedOptions = isArray(result) ? result : [];
         })
         .catch((error) => {
-          console.log("resolve options occur error");
           throw error;
         });
     } else {

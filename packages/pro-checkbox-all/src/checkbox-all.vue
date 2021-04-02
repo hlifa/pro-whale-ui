@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-04-01 14:35:50
- * @LastEditTime: 2021-04-01 20:37:42
+ * @LastEditTime: 2021-04-02 11:20:23
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/packages/pro-checkbox-all/src/checkbox-all.vue
@@ -111,7 +111,6 @@ export default {
           this.resolvedOptions = isArray(result) ? result : [];
         })
         .catch((error) => {
-          console.log("resolve options occur error");
           throw error;
         });
     } else {

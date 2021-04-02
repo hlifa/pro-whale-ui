@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-22 17:44:02
- * @LastEditTime: 2021-04-02 10:39:02
+ * @LastEditTime: 2021-04-02 15:40:00
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/src/main.js
@@ -41,4 +41,14 @@ const install = function (Vue) {
 export default {
   version: "0.0.1",
   install,
+  ProTabs,
+  ProBreadcrumb,
+  ProLayout,
+  ProRadioGroup,
+  ProCheckboxAll,
+  ProDateRangePicker,
+  ProSelect,
+  ProPassword,
+  ProMaskLayer,
+  ProForm,
 };
