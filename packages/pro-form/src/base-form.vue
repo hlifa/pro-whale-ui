@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-26 15:23:34
- * @LastEditTime: 2021-04-02 17:58:51
+ * @LastEditTime: 2021-04-02 18:32:41
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/packages/pro-form/src/base-form.vue
@@ -73,8 +73,6 @@ import {
   isFunction,
   isBoolean,
 } from "@/utils/types";
-import upperFirst from "lodash/upperFirst";
-import camelCase from "lodash/camelCase";
 
 const formPreset = {
     labelPosition: "right",
