@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-26 15:23:34
- * @LastEditTime: 2021-04-02 08:29:34
+ * @LastEditTime: 2021-04-02 17:58:51
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/packages/pro-form/src/base-form.vue
@@ -288,23 +288,16 @@ export default {
         if (item.component) {
           if (isString(item.component)) {
             // 全局注册component
-            // 混入mixins
-            Vue.component(upperFirst(camelCase(item.component))).mixin(
-              this.mixin
-            );
           } else if (isObject(item.component)) {
             // 局部注册component
-            // 混入mixins
             if (!("render" in item.component)) {
               throw Error(
                 "Component options object must contain `render` method"
               );
             }
             item.component = { ...item.component, functional: true };
-            item.component.mixins = [this.mixin];
           } else if (isFunction(item.component)) {
             // 动态加载组件
-            // item.component = item.component();
           }
           // 处理onChange / watch
           if (isFunction(item.onChange)) {

@@ -1,12 +1,12 @@
 # ProWhaleUI
 ProWhaleUI是基于ElementUI而开发的一套高阶组件(ProComponent)，用于后台场景中快速搭建CRUD页面，提供了更高级别的抽象，开箱即用，同时不失灵活性，期望可以满足绝大多数业务需求。
 
-## install
+## Install
 ```bash
 npm install --save pro-whale-ui
 ```
 
-## usage
+## Usage
 ### 完整引入 ProWhaleUI
 ```js
 import Vue from 'vue'
@@ -51,5 +51,5 @@ new Vue({
 });
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Document
+See [ProWhaleUI Document](https://hlifa.github.io/pro-whale-ui/).
