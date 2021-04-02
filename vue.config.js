@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-22 17:44:56
- * @LastEditTime: 2021-04-02 17:11:52
+ * @LastEditTime: 2021-04-02 17:26:01
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/vue.config.js
@@ -59,8 +59,8 @@ const chainWebpack = isProd
     };
 
 module.exports = {
-  // outputDir: path.resolve(__dirname, "./"),
-  // publicPath: path.resolve(__dirname, "./"),
+  outputDir: path.resolve(__dirname, "./dist"),
+  publicPath: isProd ? "/" : "/pro-whale-ui/",
   configureWebpack: mergeConfigureWebpack,
   chainWebpack: chainWebpack,
 };
