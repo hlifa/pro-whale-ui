@@ -1,16 +1,26 @@
 {
   "name": "pro-whale-ui",
   "version": "0.1.1",
-  "main": "dist/pro-whale-ui.common.js",
+  "main": "lib/whale-ui.common.js",
   "keyword": [
     "Vue",
     "ElementUI",
     "ProComponents"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:hlifa/pro-whale-ui.git"
+  },
+  "homepage": "https://github.com/hlifa/pro-whale-ui/",
+  "bugs": {
+    "url": "https://github.com/hlifa/pro-whale-ui/issues"
+  },
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name whale-ui src/main.js",
+    "docs": "vue-cli-service build --mode development",
+    "build": "npm run release",
+    "release": "vue-cli-service build --dest lib --target lib --name whale-ui src/main.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -38,5 +48,14 @@
   },
   "eslintIgnore": [
     "**/*.md"
-  ]
+  ],
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+   "lint-staged": {
+    "*.{js,vue}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
 }

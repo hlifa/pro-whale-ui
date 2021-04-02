@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-22 17:44:56
- * @LastEditTime: 2021-04-02 11:15:08
+ * @LastEditTime: 2021-04-02 17:11:52
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/vue.config.js
@@ -23,7 +23,6 @@ const mergeConfigureWebpack = isProd
       output: {
         filename: "[name].[hash:7]js",
         chunkFilename: isProd ? "[name].[hash:7].js" : "[name].js",
-        libraryExport: "default",
       },
       resolve: {
         alias: {
@@ -60,8 +59,8 @@ const chainWebpack = isProd
     };
 
 module.exports = {
-  outputDir: path.resolve(__dirname, "./dist"),
-  publicPath: path.resolve(__dirname),
+  // outputDir: path.resolve(__dirname, "./"),
+  // publicPath: path.resolve(__dirname, "./"),
   configureWebpack: mergeConfigureWebpack,
   chainWebpack: chainWebpack,
 };
