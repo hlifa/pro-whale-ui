@@ -1,6 +1,6 @@
 {
   "name": "pro-whale-ui",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "lib/whale-ui.common.js",
   "keyword": [
     "Vue",
@@ -52,7 +52,7 @@
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
-   "lint-staged": {
+  "lint-staged": {
     "*.{js,vue}": [
       "vue-cli-service lint",
       "git add"
