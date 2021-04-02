@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-22 17:44:02
- * @LastEditTime: 2021-03-29 11:09:08
+ * @LastEditTime: 2021-04-02 10:40:58
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/src/App.vue
@@ -24,13 +24,39 @@
               <el-submenu index="component">
                 <template slot="title">组件</template>
                 <el-menu-item-group>
+                  <template slot="title">ProLayout</template>
+                  <el-menu-item index="example-pro-tabs"
+                    ><el-link href="#ProTabs">ProTabs</el-link></el-menu-item
+                  >
+                  <el-menu-item index="example-pro-layout"
+                    ><el-link href="#ProLayout"
+                      >ProLayout</el-link
+                    ></el-menu-item
+                  >
+                </el-menu-item-group>
+                <el-menu-item-group>
                   <template slot="title">ProForm</template>
                   <el-menu-item index="example-pro-radio-group"
                     ><el-link href="#ProRadioGroup"
                       >ProRadioGroup</el-link
                     ></el-menu-item
                   >
-                  <el-menu-item index="example-pro-form"
+                  <el-menu-item index="example-pro-checkbox-all"
+                    ><el-link href="#ProCheckboxAll"
+                      >ProCheckboxAll</el-link
+                    ></el-menu-item
+                  >
+                  <el-menu-item index="example-pro-date-picker"
+                    ><el-link href="#ProDateRangePicker"
+                      >ProDateRangePicker</el-link
+                    ></el-menu-item
+                  >
+                  <el-menu-item index="example-pro-select"
+                    ><el-link href="#ProSelect"
+                      >ProSelect</el-link
+                    ></el-menu-item
+                  >
+                  <el-menu-item index="example-pro-base-form"
                     ><el-link href="#ProForm">ProForm</el-link></el-menu-item
                   >
                 </el-menu-item-group>
@@ -44,10 +70,6 @@
       </el-container>
       <el-footer></el-footer>
     </el-container>
-    <!-- <pro-radio-group
-      v-model="formData.proRadioGroup"
-      v-bind="formView.proRadioGroup"
-    ></pro-radio-group> -->
   </div>
 </template>
 
@@ -58,29 +80,6 @@ export default {
   data() {
     return {
       activeComponentName: "example-pro-radio-group",
-      formData: {
-        proRadioGroup: "1",
-      },
-      formView: {
-        proRadioGroup: {
-          size: "small",
-          elRadioStyle: "button",
-          // options: [
-          //   { label: "1", name: "是" },
-          //   { label: "0", name: "否", props: { disabled: true } },
-          // ],
-          options() {
-            return new Promise((resolve) => {
-              setTimeout(() => {
-                return resolve([
-                  { label: "1", name: "牛奶" },
-                  { label: "0", name: "咖啡", props: { disabled: false } },
-                ]);
-              }, 2000);
-            });
-          },
-        },
-      },
     };
   },
 
@@ -321,7 +320,7 @@ a:hover {
 .example-container {
 }
 
-.example-container div + div {
+.example-container > div + div {
   margin-top: 30px;
 }
 </style>

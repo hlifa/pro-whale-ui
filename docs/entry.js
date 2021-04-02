@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-29 09:10:25
- * @LastEditTime: 2021-03-29 09:58:25
+ * @LastEditTime: 2021-04-01 20:28:55
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/docs/entry.js
@@ -12,6 +12,8 @@ import ElementUI from "element-ui";
 import WhaleUI from "../src/main.js";
 
 import "element-ui/lib/theme-chalk/index.css";
+
+window.Vue = Vue;
 
 // element-ui必须先引入
 Vue.use(ElementUI);

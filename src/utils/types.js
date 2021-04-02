@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-26 15:43:25
- * @LastEditTime: 2021-03-26 15:51:56
+ * @LastEditTime: 2021-03-30 19:38:30
  * @LastEditors: Please set LastEditors
  * @Description: 类型检测
  * @FilePath: /whale-ui/src/utils/types.js
@@ -42,6 +42,10 @@ export function isNaN(value) {
 
 export function isNumber(value) {
   return typeof value === "number" && !isNaN(value);
+}
+
+export function isBoolean(value) {
+  return typeof value === "boolean";
 }
 
 export function isUndefined(value) {

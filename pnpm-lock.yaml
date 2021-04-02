@@ -1,7 +1,9 @@
 dependencies:
+  axios: 0.21.1
   core-js: 3.9.1
   element-ui: 2.15.1_vue@2.6.12
   highlight.js: 10.7.1
+  lodash: 4.17.21
   markdown-it: 12.0.4
   markdown-it-container: 3.0.0
   vue: 2.6.12
@@ -2229,6 +2231,13 @@ packages:
     resolution:
       integrity: sha1-1h9G2DslGSUOJ4Ta9bCUeai0HFk=
       tarball: aws4/download/aws4-1.11.0.tgz
+  /axios/0.21.1:
+    dependencies:
+      follow-redirects: 1.13.3
+    dev: false
+    resolution:
+      integrity: sha1-IlY0gZYvTWvemnbVFu8OXTwJsrg=
+      tarball: axios/download/axios-0.21.1.tgz
   /babel-eslint/10.1.0_eslint@6.8.0:
     dependencies:
       '@babel/code-frame': 7.12.13
@@ -4713,7 +4722,6 @@ packages:
       integrity: sha1-jdfYc6G6vCB9lOrQwuDkQnbr8ug=
       tarball: flush-write-stream/download/flush-write-stream-1.1.1.tgz
   /follow-redirects/1.13.3:
-    dev: true
     engines:
       node: '>=4.0'
     resolution:
@@ -6312,7 +6320,6 @@ packages:
       integrity: sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
       tarball: lodash.uniq/download/lodash.uniq-4.5.0.tgz
   /lodash/4.17.21:
-    dev: true
     resolution:
       integrity: sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=
       tarball: lodash/download/lodash-4.17.21.tgz
@@ -10378,6 +10385,7 @@ specifiers:
   '@vue/cli-plugin-eslint': ~4.5.0
   '@vue/cli-service': ~4.5.0
   '@vue/eslint-config-prettier': ^6.0.0
+  axios: ^0.21.1
   babel-eslint: ^10.1.0
   core-js: ^3.6.5
   element-ui: 2.15.1
@@ -10385,6 +10393,7 @@ specifiers:
   eslint-plugin-prettier: ^3.3.1
   eslint-plugin-vue: ^6.2.2
   highlight.js: ^10.7.1
+  lodash: ^4.17.21
   markdown-it: ^12.0.4
   markdown-it-container: ^3.0.0
   prettier: ^2.2.1

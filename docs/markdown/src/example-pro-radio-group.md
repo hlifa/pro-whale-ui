@@ -13,7 +13,7 @@
       <pro-radio-group v-model="value" :options="options" size="small"></pro-radio-group>
     </div>
     <div>
-      <pro-radio-group v-model="value" :options="options" size="small" el-radio-style="normal"></pro-radio-group>
+      <pro-radio-group v-model="value" :options="options" size="small" el-radio-style="normal" direction="vertical"></pro-radio-group>
     </div>
   </div>
 </template>
@@ -92,20 +92,51 @@
 ```
 :::
 
+## 监听`change`事件
+:::snippet `ProRadioGroup`绑定值变化时触发`change`事件
+```html
+<template>
+  <div class="example-container">
+      <pro-radio-group v-model="value" :options="options" size="small" @change="handleChange"></pro-radio-group>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      value: '1',
+      options: [
+        { label: "1", name: "是" },
+        { label: "0", name: "否" },
+      ]
+    }
+  },
+  methods: {
+    handleChange(checked) {
+      alert(`You selected is ${checked}`);
+    }
+  }
+}
+</script>
+```
+:::
+
 
 ## ProRadioGroup Attributes
+| 参数 | 说明     | 类型   | 可选值 | 默认值 | 示例 |
+| ---- | -------- | ------ | ------ | ------ | ----- |
+| value / v-model | 绑定值 | String / Number / Boolean | —      | —      | |
+| el-radio-style | 指定radio的类型 | String | button / normal | button | |
+| options | `radio-group`包裹的`radio`组 | Array / Function |  | []| [{ label: "1", name: "是" },{ label: "0", name: "否" }] |
 
-| 参数 | 说明     | 类型   | 可选值 | 默认值 |
-| ---- | -------- | ------ | ------ | ------ |
-| value / v-model | 绑定值 | String / Number / Boolean | —      | —      |
-| el-radio-style | 指定radio的类型 | String | button / normal | button |
-| options | `radio-group`包裹的`radio`组 | Array / Function | [] |
+## ProRadioGroup Events
+|事件名称	|说明	|回调参数 |
+|---|---|---|
+|change	|绑定值变化时触发的事件	|选中的 Radio label 值|
 
 ## ProRadioGroup Inherit Attributes
 请参考[Radio-group Attributes](https://element.eleme.cn/#/zh-CN/component/radio#radio-group-attributes)
-
-## ProRadioGroup Inherit Events
-请参考[Radio-group Events](https://element.eleme.cn/#/zh-CN/component/radio#radio-group-events)
 
 ## Radio Inherit Attributes
 请参考[Radio Attributes](https://element.eleme.cn/#/zh-CN/component/radio#radio-attributes)

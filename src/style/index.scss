@@ -1,0 +1,67 @@
+[direction=rtl] input[type=text],  input[type=text][direction=rtl], 
+[direction=rtl] input[type=password],  input[type=password][direction=rtl], 
+[direction=rtl] textarea, textarea[direction=rtl] {
+  direction: rtl;
+}
+
+.pro-direction__vertical {
+  display: flex!important;
+  flex-direction: column;
+}
+
+.pro-direction__vertical label {
+    margin-bottom: 10px;
+}
+
+.pro-checkbox-all {
+  .el-checkbox-group {
+    display: inline-block;
+  }
+  .checkbox-style-normal.check-all-group {
+    margin-right: 30px;
+  }
+  .checkbox-style-button.check-all-group {
+    margin-right: 1px;
+  }
+  .check-all-group .el-checkbox-button__inner {
+    border-radius: 4px 0px 0px 4px !important;
+  }
+  .check-items-group
+    .el-checkbox-button:first-child
+    .el-checkbox-button__inner {
+    border-radius: 0;
+  }
+  .check-items-group .el-checkbox-button__inner:after {
+    content: "";
+    position: absolute;
+    right: 1px;
+    top: -2px;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 6px solid;
+    border-left-color: #e0e0e0;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    border-radius: 2px;
+  }
+  .check-items-group
+    .el-checkbox-button.is-checked
+    .el-checkbox-button__inner:after,
+  .check-items-group
+    .el-checkbox-button.is-checked:hover
+    .el-checkbox-button__inner:after,
+  .check-items-group
+    .el-checkbox-button.is-checked:active
+    .el-checkbox-button__inner:after {
+    border-left: 6px solid #3a8ee6;
+  }
+  .check-items-group .el-checkbox-button:hover .el-checkbox-button__inner:after,
+  .check-items-group
+    .el-checkbox-button:active
+    .el-checkbox-button__inner:after {
+    border-left: 6px solid #409eff;
+  }
+}
