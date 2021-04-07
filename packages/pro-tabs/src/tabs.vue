@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-04-02 08:39:03
- * @LastEditTime: 2021-04-02 10:33:36
+ * @LastEditTime: 2021-04-04 19:56:00
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/packages/pro-tabs/src/tabs.vue

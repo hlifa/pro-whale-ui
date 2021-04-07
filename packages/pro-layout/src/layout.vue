@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-04-02 10:24:06
- * @LastEditTime: 2021-04-02 10:42:05
+ * @LastEditTime: 2021-04-07 10:53:31
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/packages/pro-layout/src/layout.vue
@@ -12,7 +12,9 @@
       <pro-breadcrumb :breadcrumb="breadcrumb"></pro-breadcrumb>
     </el-header>
     <el-main>
+      <slot name="header"></slot>
       <pro-tabs :activeName.sync="activeName" :tabs="tabs"></pro-tabs>
+      <slot name="footer"></slot>
     </el-main>
   </el-container>
 </template>

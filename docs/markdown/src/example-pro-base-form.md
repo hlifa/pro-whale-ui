@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-30 10:51:16
- * @LastEditTime: 2021-04-01 21:30:10
+ * @LastEditTime: 2021-04-04 20:28:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/docs/markdown/src/example-pro-base-form.md
@@ -59,6 +59,7 @@ export default {
             placeholder: '请输入用户名',
             minlength: 2,
             maxlength: 20,
+            prefixIcon: 'el-icon-user'
           }
         },
         {
@@ -67,6 +68,7 @@ export default {
           component: 'pro-password',
           props: { // 子组件的props
             minlength: 8,
+            prefixIcon: 'el-icon-lock'
           }
         }
       ]
@@ -214,6 +216,7 @@ export default {
           },
           props: { // 子组件的props
             placeholder: '请输入手机号登录',
+            prefixIcon: 'el-icon-mobile',
           },
         },
         {
@@ -222,6 +225,7 @@ export default {
           component: 'el-input',
           props: { // 子组件的props
             placeholder: '请输入验证码',
+            prefixIcon: 'el-icon-message',
           }
         },
         {
@@ -234,6 +238,7 @@ export default {
             placeholder: '请输入用户名',
             minlength: 2,
             maxlength: 20,
+            prefixIcon: 'el-icon-user'
           }
         },
         {
@@ -244,6 +249,7 @@ export default {
           props: { // 子组件的props
             placeholder: '请输入登录密码',
             minlength: 8,
+            prefixIcon: 'el-icon-lock'
           }
         }
       ]
@@ -702,6 +708,7 @@ export default {
             placeholder: '请输入用户名',
             minlength: 2,
             maxlength: 20,
+            prefixIcon: 'el-icon-user'
           },
         },
         {
@@ -711,6 +718,7 @@ export default {
           props: { // 子组件的props
             placeholder: '请输入登录密码',
             minlength: 8,
+            prefixIcon: 'el-icon-lock'
           }
         }
       ],

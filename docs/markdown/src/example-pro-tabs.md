@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-04-01 14:37:25
- * @LastEditTime: 2021-04-02 10:44:22
+ * @LastEditTime: 2021-04-04 20:31:43
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/docs/markdown/src/example-pro-date-picker.md
@@ -58,6 +58,7 @@
                   component: 'el-input',
                   props: { // 子组件的props
                     placeholder: '请输入用户名',
+                    prefixIcon: 'el-icon-user',
                     minlength: 2,
                     maxlength: 20,
                   }
@@ -67,6 +68,7 @@
                   field: 'password',
                   component: 'pro-password',
                   props: { // 子组件的props
+                    prefixIcon: 'el-icon-lock',
                     minlength: 8,
                   }
                 }
@@ -104,6 +106,7 @@
                   component: 'el-input',
                   props: { // 子组件的props
                     placeholder: '请输入用户名',
+                    prefixIcon: 'el-icon-user',
                     minlength: 2,
                     maxlength: 20,
                   }
@@ -113,6 +116,7 @@
                   field: 'password',
                   component: 'pro-password',
                   props: { // 子组件的props
+                    prefixIcon: 'el-icon-lock',
                     minlength: 8,
                   }
                 },
@@ -121,6 +125,7 @@
                   field: 'password_again',
                   component: 'pro-password',
                   props: { // 子组件的props
+                    prefixIcon: 'el-icon-lock',
                     minlength: 8,
                   }
                 }

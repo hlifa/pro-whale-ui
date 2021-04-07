@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-04-01 14:37:25
- * @LastEditTime: 2021-04-02 10:40:38
+ * @LastEditTime: 2021-04-07 10:56:23
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/docs/markdown/src/example-pro-date-picker.md
@@ -62,6 +62,7 @@
                   component: 'el-input',
                   props: { // 子组件的props
                     placeholder: '请输入用户名',
+                    prefixIcon: 'el-icon-user',
                     minlength: 2,
                     maxlength: 20,
                   }
@@ -71,6 +72,7 @@
                   field: 'password',
                   component: 'pro-password',
                   props: { // 子组件的props
+                    prefixIcon: 'el-icon-lock',
                     minlength: 8,
                   }
                 }
@@ -108,6 +110,7 @@
                   component: 'el-input',
                   props: { // 子组件的props
                     placeholder: '请输入用户名',
+                    prefixIcon: 'el-icon-user',
                     minlength: 2,
                     maxlength: 20,
                   }
@@ -117,6 +120,7 @@
                   field: 'password',
                   component: 'pro-password',
                   props: { // 子组件的props
+                    prefixIcon: 'el-icon-lock',
                     minlength: 8,
                   }
                 },
@@ -125,6 +129,154 @@
                   field: 'password_again',
                   component: 'pro-password',
                   props: { // 子组件的props
+                    prefixIcon: 'el-icon-lock',
+                    minlength: 8,
+                  }
+                }
+              ]
+            }
+          }
+        },
+      }
+    },
+
+    computed: {
+      stringifyValue() {
+        return JSON.stringify(this.activeName, null, 4);
+      }
+    },
+  }
+</script>
+```
+:::
+
+## 插槽
+
+:::snippet 在`pro-checkbox-all`中绑定`v-model`，通过`options`属性设置多个单选的选项，同时继承了`el-radio-group`组件的全部属性
+
+```html
+<template>
+  <div class="example-container">
+    <div>
+      <pro-layout :breadcrumb="breadcrumb" :activeName.sync="activeName" :tabs="tabs">
+        <template #header>
+          <el-alert title="warning in header" type="warning" :closable="false"></el-alert>
+        </template>
+        <template #footer>
+          <el-alert title="warning in footer" type="warning" :closable="false"></el-alert>
+        </template>
+      </pro-layout>
+    </div>
+    <div>
+      <pre>{{stringifyValue}}</pre>
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        breadcrumb: [
+          "首页",
+          "用户登录"
+        ],
+        activeName: "/user/login",
+        tabs: {
+          "/user/login": {
+            name: "用户登录",
+            component: "pro-form",
+            props: {
+              model: {
+                username: '',
+                password: '',
+              },
+              rules: {
+                username: [
+                  {required: true, message: '请输入用户名', trigger: 'blur'},
+                  {min: 2, max: 20, message: '长度在2至20个字符之间', trigger: 'blur'}
+                ],
+                password: [
+                  {required: true, message: '请输入登录密码', trigger: 'blur'},
+                  {min: 8, message: '密码长度应大于8个字符', trigger: 'blur'}
+                ]
+              },
+              items: [
+                {
+                  name: '用户名',
+                  field: 'username',
+                  rule: 'username', // 可省略，省略时使用`field`字段值
+                  component: 'el-input',
+                  props: { // 子组件的props
+                    placeholder: '请输入用户名',
+                    prefixIcon: 'el-icon-user',
+                    minlength: 2,
+                    maxlength: 20,
+                  }
+                },
+                {
+                  name: '密码',
+                  field: 'password',
+                  component: 'pro-password',
+                  props: { // 子组件的props
+                    prefixIcon: 'el-icon-lock',
+                    minlength: 8,
+                  }
+                }
+              ]
+            }
+          },
+          "/user/register": {
+            name: "用户注册",
+            component: "pro-form",
+            props: {
+              model: {
+                username: '',
+                password: '',
+                password_again: '',
+              },
+              rules: {
+                username: [
+                  {required: true, message: '请输入用户名', trigger: 'blur'},
+                  {min: 2, max: 20, message: '长度在2至20个字符之间', trigger: 'blur'}
+                ],
+                password: [
+                  {required: true, message: '请输入登录密码', trigger: 'blur'},
+                  {min: 8, message: '密码长度应大于8个字符', trigger: 'blur'}
+                ],
+                password_again: [
+                  {required: true, message: '请再次输入登录密码', trigger: 'blur'},
+                  {min: 8, message: '密码长度应大于8个字符', trigger: 'blur'}
+                ]
+              },
+              items: [
+                {
+                  name: '用户名',
+                  field: 'username',
+                  rule: 'username', // 可省略，省略时使用`field`字段值
+                  component: 'el-input',
+                  props: { // 子组件的props
+                    placeholder: '请输入用户名',
+                    prefixIcon: 'el-icon-user',
+                    minlength: 2,
+                    maxlength: 20,
+                  }
+                },
+                {
+                  name: '密码',
+                  field: 'password',
+                  component: 'pro-password',
+                  props: { // 子组件的props
+                    prefixIcon: 'el-icon-lock',
+                    minlength: 8,
+                  }
+                },
+                {
+                  name: '确认密码',
+                  field: 'password_again',
+                  component: 'pro-password',
+                  props: { // 子组件的props
+                    prefixIcon: 'el-icon-lock',
                     minlength: 8,
                   }
                 }
