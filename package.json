@@ -1,6 +1,6 @@
 {
   "name": "pro-whale-ui",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "main": "lib/whale-ui.common.js",
   "keyword": [
     "Vue",

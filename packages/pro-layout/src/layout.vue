@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-04-02 10:24:06
- * @LastEditTime: 2021-04-07 11:45:18
+ * @LastEditTime: 2021-04-07 12:04:03
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/packages/pro-layout/src/layout.vue
@@ -9,11 +9,11 @@
 <template>
   <el-container>
     <el-header height="auto">
-      <pro-breadcrumb :breadcrumb="breadcrumb"></pro-breadcrumb>
+      <pro-breadcrumb :breadcrumb="resolvedBreadcrumb"></pro-breadcrumb>
     </el-header>
     <el-main>
       <slot name="header"></slot>
-      <pro-tabs :activeName.sync="activeName" :tabs="tabs"></pro-tabs>
+      <pro-tabs :activeName.sync="resolvedActiveName" :tabs="tabs"></pro-tabs>
       <slot name="footer"></slot>
     </el-main>
   </el-container>
@@ -44,26 +44,18 @@ export default {
     },
   },
 
-  watch: {
-    activeName: {
-      handler(newVal, oldVal) {
-        this.$emit("update:activeName", newVal);
-        const oldName = this.tabs[oldVal].name,
-          newName = this.tabs[newVal].name;
-        const oldIndex = this.breadcrumb
-          .map((item) => {
-            if (typeof item === "string") {
-              return item;
-            }
-            return item.name;
-          })
-          .indexOf(oldName);
-        if (oldIndex >= 0) {
-          this.breadcrumb.splice(oldIndex, 1);
-        }
-        this.breadcrumb.push(newName);
+  computed: {
+    resolvedBreadcrumb() {
+      const { activeName, breadcrumb, tabs } = this;
+      return breadcrumb.concat([tabs[activeName].name]);
+    },
+    resolvedActiveName: {
+      get() {
+        return this.activeName;
       },
-      immediate: true,
+      set(val) {
+        this.$emit("update:activeName", val);
+      },
     },
   },
 };

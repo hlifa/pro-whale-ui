@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-04-01 14:37:25
- * @LastEditTime: 2021-04-07 10:56:23
+ * @LastEditTime: 2021-04-07 12:01:19
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/docs/markdown/src/example-pro-date-picker.md
@@ -18,7 +18,7 @@
 <template>
   <div class="example-container">
     <div>
-      <pro-layout :breadcrumb="breadcrumb" :activeName.sync="activeName" :tabs="tabs"></pro-layout>
+      <pro-layout :breadcrumb="breadcrumb" :active-name.sync="activeName" :tabs="tabs"></pro-layout>
     </div>
     <div>
       <pre>{{stringifyValue}}</pre>
@@ -32,7 +32,6 @@
       return {
         breadcrumb: [
           "首页",
-          "用户登录"
         ],
         activeName: "/user/login",
         tabs: {
@@ -158,7 +157,7 @@
 <template>
   <div class="example-container">
     <div>
-      <pro-layout :breadcrumb="breadcrumb" :activeName.sync="activeName" :tabs="tabs">
+      <pro-layout :breadcrumb="breadcrumb" :active-name.sync="activeName" :tabs="tabs">
         <template #header>
           <el-alert title="warning in header" type="warning" :closable="false"></el-alert>
         </template>
@@ -179,7 +178,6 @@
       return {
         breadcrumb: [
           "首页",
-          "用户登录"
         ],
         activeName: "/user/login",
         tabs: {
