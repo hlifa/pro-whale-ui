@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-04-01 16:51:55
- * @LastEditTime: 2021-04-02 11:20:40
+ * @LastEditTime: 2021-04-08 19:11:00
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/packages/pro-select/src/select.vue
@@ -65,7 +65,7 @@ export default {
 
     layout: {
       type: String,
-      default: "",
+      default: "single",
     },
 
     options: {

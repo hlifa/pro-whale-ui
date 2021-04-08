@@ -9,11 +9,37 @@
 ```html
 <template>
   <div class="example-container">
-    <div>
       <pro-radio-group v-model="value" :options="options" size="small"></pro-radio-group>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        value: '1',
+        options: [
+          { label: "1", name: "是" },
+          { label: "0", name: "否" },
+        ],
+      }
+    }
+  }
+</script>
+```
+:::
+
+## 布局方向
+:::snippet 通过`direction`设置单选框组的布局方向，可选: `horizontal` / `vertical`，默认`horizontal`，注：布局方向属性只对`el-radio-style`为`normal`时有效
+
+```html
+<template>
+  <div class="example-container">
+    <div>
+      <pro-radio-group v-model="direction" :options="directionOptions" size="small"></pro-radio-group>
     </div>
     <div>
-      <pro-radio-group v-model="value" :options="options" size="small" el-radio-style="normal" direction="vertical"></pro-radio-group>
+      <pro-radio-group v-model="value" :options="options" size="small" el-radio-style="normal" :direction="direction"></pro-radio-group>
     </div>
   </div>
 </template>
@@ -22,6 +48,11 @@
   export default {
     data() {
       return {
+        direction: 'horizontal',
+        directionOptions: [
+          { label: 'horizontal', name: '水平' },
+          { label: 'vertical', name: '垂直' },
+        ],
         value: '1',
         options: [
           { label: "1", name: "是" },
@@ -67,7 +98,7 @@
 :::
 
 ## 单独设置`Radio`的属性
-:::snippet `options`数组的元素对象可以提供一个`props`属性，来单独设置`radio`的属性
+:::snippet `options`数组的元素对象可以提供一个`props`属性，来单独设置`Radio`的属性
 
 ```html
 <template>
@@ -126,8 +157,9 @@ export default {
 ## ProRadioGroup Attributes
 | 参数 | 说明     | 类型   | 可选值 | 默认值 | 示例 |
 | ---- | -------- | ------ | ------ | ------ | ----- |
-| value / v-model | 绑定值 | String / Number / Boolean | —      | —      | |
-| el-radio-style | 指定radio的类型 | String | button / normal | button | |
+| value / v-model | 绑定值 | String / Number / Boolean | —      | —      |- |
+| el-radio-style | 指定radio的类型 | String | button / normal | button |- |
+| direction | 布局方向 | String | vertical / horizontal | horizontal | -|
 | options | `radio-group`包裹的`radio`组 | Array / Function |  | []| [{ label: "1", name: "是" },{ label: "0", name: "否" }] |
 
 ## ProRadioGroup Events
@@ -141,5 +173,5 @@ export default {
 ## Radio Inherit Attributes
 请参考[Radio Attributes](https://element.eleme.cn/#/zh-CN/component/radio#radio-attributes)
 
-## Radio Button Inherit Attributes
+## Radio-button Inherit Attributes
 请参考[Radio-button Attributes](https://element.eleme.cn/#/zh-CN/component/radio#radio-button-attributes)

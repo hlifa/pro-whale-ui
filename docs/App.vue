@@ -1,19 +1,25 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-22 17:44:02
- * @LastEditTime: 2021-04-02 10:40:58
+ * @LastEditTime: 2021-04-08 15:53:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/src/App.vue
 -->
 <template>
   <div id="app">
-    <el-container direction="vertical">
-      <!-- <el-header>
-        <img alt="Vue logo" src="./assets/logo.png" style="width: 80px" />
-      </el-header> -->
+    <el-container direction="vertical home">
+      <el-header>
+        <div class="home--header-logo">
+          <img src="./assets/logo.png" />
+        </div>
+        <div class="home--header-title">PRO-WHALE-UI</div>
+        <div class="home--header-github" @click="handleGitbubClick">
+          <img src="./assets/github.svg" />
+        </div>
+      </el-header>
       <el-container>
-        <el-aside>
+        <el-aside class="home--left">
           <el-menu>
             <el-menu
               :default-active="activeComponentName"
@@ -21,8 +27,26 @@
               :collapse="false"
               @select="handleSelect"
             >
+              <el-submenu index="summary">
+                <template slot="title"
+                  ><div class="home--left-title">开发指南</div></template
+                >
+                <el-menu-item-group>
+                  <template slot="title">Start</template>
+                  <el-menu-item index="example-introduce"
+                    ><el-link href="#Introduce">介绍</el-link></el-menu-item
+                  >
+                  <el-menu-item index="example-quick-start"
+                    ><el-link href="#QuickStart"
+                      >快速上手</el-link
+                    ></el-menu-item
+                  >
+                </el-menu-item-group>
+              </el-submenu>
               <el-submenu index="component">
-                <template slot="title">组件</template>
+                <template slot="title"
+                  ><div class="home--left-title">组件</div></template
+                >
                 <el-menu-item-group>
                   <template slot="title">ProLayout</template>
                   <el-menu-item index="example-pro-tabs"
@@ -64,7 +88,7 @@
             </el-menu>
           </el-menu>
         </el-aside>
-        <el-main>
+        <el-main class="demo-block demo-form">
           <component :is="activeComponentName"></component>
         </el-main>
       </el-container>
@@ -79,7 +103,7 @@ export default {
 
   data() {
     return {
-      activeComponentName: "example-pro-radio-group",
+      activeComponentName: "example-introduce",
     };
   },
 
@@ -88,6 +112,9 @@ export default {
   methods: {
     handleSelect(index) {
       this.activeComponentName = index;
+    },
+    handleGitbubClick() {
+      window.open("https://github.com/hlifa/pro-whale-ui");
     },
   },
 };
@@ -322,5 +349,149 @@ a:hover {
 
 .example-container > div + div {
   margin-top: 30px;
+}
+
+.demo-form .el-form {
+  max-width: 460px;
+}
+
+.home {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.home--header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 64px;
+  line-height: 64px;
+  background-color: #fff;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.08);
+}
+
+.home--header-logo {
+  float: left;
+  padding-left: 25px;
+  height: 65px;
+  line-height: 65px;
+  overflow: hidden;
+  cursor: pointer;
+
+  > img {
+    height: 32px;
+    vertical-align: middle;
+    border-style: none;
+  }
+}
+
+.home--header-title {
+  height: 65px;
+  line-height: 65px;
+  font-size: 25px;
+  display: inline-block;
+  padding-left: 12px;
+  font-weight: 700;
+}
+
+.home--left {
+  z-index: 30;
+  top: 65px;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+  width: 250px;
+  font-size: 14px;
+  margin: 30px 0;
+  color: #3f536e;
+  background: #fff;
+  border-right: 1px solid #ececec;
+}
+
+.home--left-title {
+  font-size: 16px;
+  color: #333;
+  line-height: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 4px 25px;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  transition: 0.15s ease-out;
+  font-weight: 700;
+}
+
+.home--left-link {
+  font-size: 14px;
+  color: #333;
+  line-height: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 4px 25px;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  transition: 0.15s ease-out;
+  font-weight: 500;
+
+  &:hover {
+    color: #41a259;
+  }
+}
+
+.home--header-github {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  right: 20px;
+  top: 10px;
+  color: #444444;
+  transition: all 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  > img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.router-link-exact-active {
+  color: #41a259 !important;
+  background-color: #eeffde !important;
+  border-right: 3px solid #41a259 !important;
+}
+
+.home--content {
+  height: calc(100% - 65px);
+  overflow: auto;
+  margin-top: 65px;
+}
+
+.home--content-page {
+  padding-left: 250px;
+}
+
+.home--content-view {
+  max-width: 1000px;
+  padding: 30px 50px 60px 50px;
+  margin: 0 auto;
+}
+.el-menu-item.is-active {
+  background-color: #eeffde !important;
+  border-right: 3px solid #41a259 !important;
+
+  > a {
+    color: #41a259 !important;
+  }
 }
 </style>

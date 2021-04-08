@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-04-02 10:24:06
- * @LastEditTime: 2021-04-07 12:04:03
+ * @LastEditTime: 2021-04-08 09:49:36
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/packages/pro-layout/src/layout.vue
@@ -13,7 +13,11 @@
     </el-header>
     <el-main>
       <slot name="header"></slot>
-      <pro-tabs :activeName.sync="resolvedActiveName" :tabs="tabs"></pro-tabs>
+      <pro-tabs
+        :active-name.sync="resolvedActiveName"
+        :tabs="tabs"
+        v-bind="$attrs"
+      ></pro-tabs>
       <slot name="footer"></slot>
     </el-main>
   </el-container>
@@ -22,6 +26,8 @@
 <script>
 export default {
   name: "ProLayout",
+
+  inheritAttrs: false,
 
   props: {
     breadcrumb: {

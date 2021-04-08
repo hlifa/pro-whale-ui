@@ -65,3 +65,20 @@
     border-left: 6px solid #409eff;
   }
 }
+
+.pro-form-item--columns-1 .el-form-item {
+  width: 100%;
+  margin-right: 0!important;
+}
+.pro-form-item--columns-2 .el-form-item {
+  width: 50%;
+  margin-right: 0!important;
+}
+.pro-form-item--columns-3 .el-form-item {
+  width: 33%;
+  margin-right: 0!important;
+}
+.pro-form-item--columns-4 .el-form-item {
+  width: 25%;
+  margin-right: 0!important;
+}

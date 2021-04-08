@@ -1,14 +1,14 @@
 <!--
  * @Author: your name
  * @Date: 2021-04-01 14:37:25
- * @LastEditTime: 2021-04-01 20:34:58
+ * @LastEditTime: 2021-04-08 17:55:34
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/docs/markdown/src/example-pro-checkbox-all.md
 -->
 # ProCheckboxAll
 
-高阶多选框组 - 
+高阶多选框组 - 封装了`ElCheckboxGroup`了，并带有`全选`功能
 
 ## 基础用法
 
@@ -16,26 +16,68 @@
 
 ```html
 <template>
-  <!-- <div class="example-container"> -->
-    <el-container direction="vertical">
+  <el-container direction="vertical">
     <div>
       <pro-checkbox-all v-model="value" :options="options" size="small"></pro-checkbox-all>
-    </div>
-    <div style="margin-top: 20px;">
-      <pro-checkbox-all v-model="value" :options="options" size="small" el-checkbox-style="normal" direction="vertical"></pro-checkbox-all>
     </div>
     <div>
       <pre>{{stringifyValue}}</pre>
     </div>
-    </el-container>
-    
-  <!-- </div> -->
+  </el-container>
 </template>
 
 <script>
   export default {
     data() {
       return {
+        value: ['Shanghai', 'Beijing', 'Guangzhou'],
+        options: [
+          { label: "Shanghai", name: "上海" },
+          { label: "Beijing", name: "北京" },
+          { label: "Guangzhou", name: "广州" },
+          { label: "Shenzhen", name: "深圳" },
+        ],
+      }
+    },
+
+    computed: {
+      stringifyValue() {
+        return JSON.stringify(this.value, null, 4);
+      }
+    }
+  }
+</script>
+```
+:::
+
+## 布局方向
+
+:::snippet 通过`direction`设置单选框组的布局方向，可选: `horizontal` / `vertical`，默认`horizontal`，注：布局方向属性只对`el-checkbox-style` 为 `normal`时有效
+
+```html
+<template>
+  <el-container direction="vertical">
+    <div style="margin-bottom: 20px;">
+      <pro-radio-group v-model="direction" :options="directionOptions" size="small"></pro-radio-group>
+    </div>
+    <div>
+      <pro-checkbox-all v-model="value" :options="options" size="small" el-checkbox-style="normal" :direction="direction"></pro-checkbox-all>
+    </div>
+    <div>
+      <pre>{{stringifyValue}}</pre>
+    </div>
+  </el-container>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        direction: 'horizontal',
+        directionOptions: [
+          { label: 'horizontal', name: '水平' },
+          { label: 'vertical', name: '垂直' },
+        ],
         value: ['Shanghai', 'Beijing', 'Guangzhou'],
         options: [
           { label: "Shanghai", name: "上海" },
@@ -102,20 +144,21 @@
 ## ProCheckboxAll Attributes
 | 参数 | 说明     | 类型   | 可选值 | 默认值 | 示例 |
 | ---- | -------- | ------ | ------ | ------ | ----- |
-| value / v-model | 绑定值 | String / Number / Boolean | —      | —      | |
-| el-checkbox-style | 指定radio的类型 | String | button / normal | button | |
+| value / v-model | 绑定值 | String / Number / Boolean | —      | —      |- |
+| el-checkbox-style | 指定radio的类型 | String | button / normal | button |- |
+| direction | 布局方向 | String | vertical / horizontal | horizontal | -|
 | options | `radio-group`包裹的`radio`组 | Array / Function |  | []| [{ label: "1", name: "是" },{ label: "0", name: "否" }] |
 
 ## ProCheckboxAll Events
 |事件名称	|说明	|回调参数 |
 |---|---|---|
-|change	|绑定值变化时触发的事件	|选中的 Radio label 值|
+|change	|绑定值变化时触发的事件	|选中的值|
 
 ## ProCheckboxAll Inherit Attributes
-请参考[Radio-group Attributes](https://element.eleme.cn/#/zh-CN/component/radio#radio-group-attributes)
+请参考[Checkbox-group Attributes](https://element.eleme.cn/#/zh-CN/component/checkbox#checkbox-group-attributes)
 
 ## Checkbox Inherit Attributes
-请参考[Radio Attributes](https://element.eleme.cn/#/zh-CN/component/radio#radio-attributes)
+请参考[Checkbox Attributes](https://element.eleme.cn/#/zh-CN/component/checkbox#checkbox-attributes)
 
-## Checkbox Button Inherit Attributes
-请参考[Radio-button Attributes](https://element.eleme.cn/#/zh-CN/component/radio#radio-button-attributes)
+## Checkbox-button Inherit Attributes
+请参考[Checkbox-button Attributes](https://element.eleme.cn/#/zh-CN/component/checkbox#checkbox-button-attributes)

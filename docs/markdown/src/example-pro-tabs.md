@@ -1,24 +1,71 @@
 <!--
  * @Author: your name
  * @Date: 2021-04-01 14:37:25
- * @LastEditTime: 2021-04-04 20:31:43
+ * @LastEditTime: 2021-04-08 16:42:35
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/docs/markdown/src/example-pro-date-picker.md
 -->
 # ProTabs
 
-高阶日期时间选择器 - 
+高阶标签页 - 预设卡片化样式，用于后台标准布局`ProLayout`的部件之一，标签页中承载的内容支持异步组件加载
 
 ## 基础用法
 
-:::snippet 在`pro-checkbox-all`中绑定`v-model`，通过`options`属性设置多个单选的选项，同时继承了`el-radio-group`组件的全部属性
+:::snippet 在`pro-tabs`上设置`active-name.sync`绑定当前激活选项卡，通过`tabs`属性设置标签页选项，可以设置自定义组件
 
 ```html
 <template>
   <div class="example-container">
     <div>
-      <pro-tabs :activeName.sync="activeName" :tabs="tabs"></pro-tabs>
+      <pro-tabs :active-name.sync="activeName" :tabs="tabs"></pro-tabs>
+    </div>
+    <div>
+      <pre>{{stringifyValue}}</pre>
+    </div>
+  </div>
+</template>
+
+<script>
+  import Login from '../../components/login'
+  import Register from '../../components/register'
+
+  export default {
+    data() {
+      return {
+        activeName: "/user/login",
+        tabs: {
+          "/user/login": {
+            name: "用户登录",
+            component: Login,
+          },
+          "/user/register": {
+            name: "用户注册",
+            component: Register,
+          }
+        },
+      }
+    },
+
+    computed: {
+      stringifyValue() {
+        return JSON.stringify(this.activeName, null, 4);
+      }
+    },
+  }
+</script>
+```
+:::
+
+## 异步组件
+
+:::snippet 通过`import(...)`来设置Vue 的异步组件和 Webpack 的代码分割功能，可以减少最终构建包的体积
+
+```html
+<template>
+  <div class="example-container">
+    <div>
+      <pro-tabs :active-name.sync="activeName" :tabs="tabs"></pro-tabs>
     </div>
     <div>
       <pre>{{stringifyValue}}</pre>
@@ -34,103 +81,15 @@
         tabs: {
           "/user/login": {
             name: "用户登录",
-            component: "pro-form",
-            props: {
-              model: {
-                username: '',
-                password: '',
-              },
-              rules: {
-                username: [
-                  {required: true, message: '请输入用户名', trigger: 'blur'},
-                  {min: 2, max: 20, message: '长度在2至20个字符之间', trigger: 'blur'}
-                ],
-                password: [
-                  {required: true, message: '请输入登录密码', trigger: 'blur'},
-                  {min: 8, message: '密码长度应大于8个字符', trigger: 'blur'}
-                ]
-              },
-              items: [
-                {
-                  name: '用户名',
-                  field: 'username',
-                  rule: 'username', // 可省略，省略时使用`field`字段值
-                  component: 'el-input',
-                  props: { // 子组件的props
-                    placeholder: '请输入用户名',
-                    prefixIcon: 'el-icon-user',
-                    minlength: 2,
-                    maxlength: 20,
-                  }
-                },
-                {
-                  name: '密码',
-                  field: 'password',
-                  component: 'pro-password',
-                  props: { // 子组件的props
-                    prefixIcon: 'el-icon-lock',
-                    minlength: 8,
-                  }
-                }
-              ]
-            }
+            component: () => {
+              return import('../../components/login');
+            },
           },
           "/user/register": {
             name: "用户注册",
-            component: "pro-form",
-            props: {
-              model: {
-                username: '',
-                password: '',
-                password_again: '',
-              },
-              rules: {
-                username: [
-                  {required: true, message: '请输入用户名', trigger: 'blur'},
-                  {min: 2, max: 20, message: '长度在2至20个字符之间', trigger: 'blur'}
-                ],
-                password: [
-                  {required: true, message: '请输入登录密码', trigger: 'blur'},
-                  {min: 8, message: '密码长度应大于8个字符', trigger: 'blur'}
-                ],
-                password_again: [
-                  {required: true, message: '请再次输入登录密码', trigger: 'blur'},
-                  {min: 8, message: '密码长度应大于8个字符', trigger: 'blur'}
-                ]
-              },
-              items: [
-                {
-                  name: '用户名',
-                  field: 'username',
-                  rule: 'username', // 可省略，省略时使用`field`字段值
-                  component: 'el-input',
-                  props: { // 子组件的props
-                    placeholder: '请输入用户名',
-                    prefixIcon: 'el-icon-user',
-                    minlength: 2,
-                    maxlength: 20,
-                  }
-                },
-                {
-                  name: '密码',
-                  field: 'password',
-                  component: 'pro-password',
-                  props: { // 子组件的props
-                    prefixIcon: 'el-icon-lock',
-                    minlength: 8,
-                  }
-                },
-                {
-                  name: '确认密码',
-                  field: 'password_again',
-                  component: 'pro-password',
-                  props: { // 子组件的props
-                    prefixIcon: 'el-icon-lock',
-                    minlength: 8,
-                  }
-                }
-              ]
-            }
+            component: () => {
+              return import('../../components/register');
+            },
           }
         },
       }
@@ -147,23 +106,19 @@
 :::
 
 
-## ProCheckboxAll Attributes
+## ProTabs Attributes
 | 参数 | 说明     | 类型   | 可选值 | 默认值 | 示例 |
 | ---- | -------- | ------ | ------ | ------ | ----- |
-| value / v-model | 绑定值 | String / Number / Boolean | —      | —      | |
-| el-checkbox-style | 指定radio的类型 | String | button / normal | button | |
-| options | `radio-group`包裹的`radio`组 | Array / Function |  | []| [{ label: "1", name: "是" },{ label: "0", name: "否" }] |
+| active-name | 当前激活标签页选项卡的name | String  | —      | —      | |
+| tabs | 标签页配置 | Object | - | {} | { 'tab1': { name: 'tab1',  component: ComponentA, paneProps: {...}, props: {...} } } |
 
-## ProCheckboxAll Events
-|事件名称	|说明	|回调参数 |
-|---|---|---|
-|change	|绑定值变化时触发的事件	|选中的 Radio label 值|
+## ProTabs Inherit Attributes
+请参考[Tabs Attributes](https://element.eleme.cn/#/zh-CN/component/tabs#tabs-attributes)
 
-## ProCheckboxAll Inherit Attributes
-请参考[Radio-group Attributes](https://element.eleme.cn/#/zh-CN/component/radio#radio-group-attributes)
+## Tab-pane Attributes
+通过对`tabs`属性中的元素设置`paneProps`属性来传递Tab-pane Attributes
+请参考[Tab-pane Attributes](https://element.eleme.cn/#/zh-CN/component/tabs#tab-pane-attributes)
 
-## Checkbox Inherit Attributes
-请参考[Radio Attributes](https://element.eleme.cn/#/zh-CN/component/radio#radio-attributes)
-
-## Checkbox Button Inherit Attributes
-请参考[Radio-button Attributes](https://element.eleme.cn/#/zh-CN/component/radio#radio-button-attributes)
+## Tab-component Attributes
+Tab-component指`tab-pane`中包裹的自定义组件，
+通过对`tabs`属性中的元素设置`props`属性来传递Tab-component Attributes

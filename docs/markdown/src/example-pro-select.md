@@ -1,10 +1,10 @@
 # ProSelect
 
-高阶Select选择器 - 
+高阶Select选择器 - 封装了`el-select`选择器，无需自己布局
 
 ## 基础用法
 
-:::snippet 在`pro-checkbox-all`中绑定`v-model`，通过`options`属性设置多个单选的选项，同时继承了`el-radio-group`组件的全部属性
+:::snippet 在`pro-select`中绑定`v-model`，通过`options`属性设置可选项，同时继承了`el-select`组件的全部属性
 
 ```html
 <template>
@@ -48,7 +48,7 @@
 
 ## 异步用法
 
-:::snippet 在`pro-checkbox-all`中绑定`v-model`，通过`options`属性设置多个单选的选项，同时继承了`el-radio-group`组件的全部属性
+:::snippet `options`属性可以传入一个函数，该函数返回一个`Promise`实例，该`Promise`实例`resolve`了选项数组
 
 ```html
 <template>
@@ -92,9 +92,9 @@
 ```
 :::
 
-## 基础多选
+## 多选
 
-:::snippet 在`pro-checkbox-all`中绑定`v-model`，通过`options`属性设置多个单选的选项，同时继承了`el-radio-group`组件的全部属性
+:::snippet 为`el-select`设置`multiple`属性即可启用多选，此时`v-model`的值为当前选中值所组成的数组。默认情况下选中值会以 Tag 的形式展现，你也可以设置`collapse-tags`属性将它们合并为一段文字。
 
 ```html
 <template>
@@ -138,7 +138,7 @@
 
 ## 自定义模板
 
-:::snippet 在`pro-checkbox-all`中绑定`v-model`，通过`options`属性设置多个单选的选项，同时继承了`el-radio-group`组件的全部属性
+:::snippet 将自定义的 HTML 模板插入`pro-select`的 作用域 slot 中即可
 
 ```html
 <template>
@@ -183,7 +183,7 @@
 
 ## 分组
 
-:::snippet 在`pro-checkbox-all`中绑定`v-model`，通过`options`属性设置多个单选的选项，同时继承了`el-radio-group`组件的全部属性
+:::snippet 将`layout`设置为`group`，并传入分组数据，可将备选项设置为分组显示
 
 ```html
 <template>
@@ -251,23 +251,23 @@
 ```
 :::
 
-## ProCheckboxAll Attributes
+## ProSelect Attributes
 | 参数 | 说明     | 类型   | 可选值 | 默认值 | 示例 |
 | ---- | -------- | ------ | ------ | ------ | ----- |
 | value / v-model | 绑定值 | String / Number / Boolean | —      | —      | |
-| el-checkbox-style | 指定radio的类型 | String | button / normal | button | |
-| options | `radio-group`包裹的`radio`组 | Array / Function |  | []| [{ label: "1", name: "是" },{ label: "0", name: "否" }] |
+| layout| 备选项布局方式 | String | single / group | single | - |
+| options | 备选项数组 | Array / Function |  | [] | - |
 
-## ProCheckboxAll Events
+## ProSelect Events
 |事件名称	|说明	|回调参数 |
 |---|---|---|
-|change	|绑定值变化时触发的事件	|选中的 Radio label 值|
+|change	|绑定值变化时触发的事件	| 绑定值 |
 
-## ProCheckboxAll Inherit Attributes
-请参考[Radio-group Attributes](https://element.eleme.cn/#/zh-CN/component/radio#radio-group-attributes)
+## ProSelect Inherit Attributes
+请参考[Select Attributes](https://element.eleme.cn/#/zh-CN/component/select#select-attributes)
 
-## Checkbox Inherit Attributes
-请参考[Radio Attributes](https://element.eleme.cn/#/zh-CN/component/radio#radio-attributes)
+## Option Group Attributes
+通过传递`group.props`来设置，请参考[Option Group Attributes](https://element.eleme.cn/#/zh-CN/component/select#option-group-attributes)
 
-## Checkbox Button Inherit Attributes
-请参考[Radio-button Attributes](https://element.eleme.cn/#/zh-CN/component/radio#radio-button-attributes)
+## Option Attributes
+通过传递`option.props`来设置，请参考[Option Attributes](https://element.eleme.cn/#/zh-CN/component/select#option-attributes)
