@@ -1,18 +1,18 @@
 <!--
  * @Author: your name
  * @Date: 2021-04-01 14:37:25
- * @LastEditTime: 2021-04-08 17:55:34
+ * @LastEditTime: 2021-04-08 19:25:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/docs/markdown/src/example-pro-checkbox-all.md
 -->
 # ProCheckboxAll
 
-高阶多选框组 - 封装了`ElCheckboxGroup`了，并带有`全选`功能
+高阶多选框组 - 封装了`el-checkbox-group`组件，并带有`全选`功能
 
 ## 基础用法
 
-:::snippet 在`pro-checkbox-all`中绑定`v-model`，通过`options`属性设置多个单选的选项，同时继承了`el-radio-group`组件的全部属性
+:::snippet 在`pro-checkbox-all`中绑定`v-model`，通过`options`属性设置多个单选的选项，同时继承了`el-checkbox-group`组件的全部属性
 
 ```html
 <template>

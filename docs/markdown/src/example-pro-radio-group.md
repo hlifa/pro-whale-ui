@@ -1,6 +1,6 @@
 # ProRadioGroup
 
-高阶单选框组 - 无需对多个单选框布局
+高阶单选框组 - 封装了`el-radio-group`组件
 
 ## 基础用法
 

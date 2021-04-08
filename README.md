@@ -10,8 +10,7 @@ npm install --save pro-whale-ui
 npm install --save pro-whale-ui@0.1.6
 ```
 
-## 在项目中使用
-### 完整引入 ProWhaleUI
+## 完整引入 ProWhaleUI
 ```js
 import Vue from 'vue'
 import ElementUI from "element-ui";
@@ -33,7 +32,7 @@ new Vue({
 
 ```
 
-### 按需引入
+## 按需引入
 ```js
 import Vue from 'vue'
 import ElementUI from "element-ui";
@@ -55,5 +54,26 @@ new Vue({
 });
 ```
 
-### Document
+## 在项目中使用
+```js
+<template>
+  <pro-radio-group v-model="value" :options="options" size="small"></pro-radio-group>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        value: '1',
+        options: [
+          { label: "1", name: "是" },
+          { label: "0", name: "否" },
+        ],
+      }
+    }
+  }
+</script>
+```
+
+## Document
 See [ProWhaleUI Document](https://hlifa.github.io/pro-whale-ui/).
