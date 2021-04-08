@@ -26,10 +26,6 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "element-ui": "2.15.1",
-    "highlight.js": "^10.7.1",
-    "lodash": "^4.17.21",
-    "markdown-it": "^12.0.4",
-    "markdown-it-container": "^3.0.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -44,7 +40,10 @@
     "prettier": "^2.2.1",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "highlight.js": "^10.7.1",
+    "markdown-it": "^12.0.4",
+    "markdown-it-container": "^3.0.0"
   },
   "eslintIgnore": [
     "**/*.md"
