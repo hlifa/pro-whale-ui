@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-22 17:44:02
- * @LastEditTime: 2021-04-02 15:40:00
+ * @LastEditTime: 2021-05-17 11:10:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/src/main.js
@@ -15,6 +15,7 @@ import ProDateRangePicker from "../packages/pro-date-range-picker/index.js";
 import ProSelect from "../packages/pro-select/index.js";
 import ProPassword from "../packages/pro-password/index.js";
 import ProMaskLayer from "../packages/pro-mask-layer/index.js";
+import ProNumberRange from "../packages/pro-number-range/index.js";
 import ProForm from "../packages/pro-form/index.js";
 
 import "./style/index.scss";
@@ -29,6 +30,7 @@ const components = [
   ProSelect,
   ProPassword,
   ProMaskLayer,
+  ProNumberRange,
   ProForm,
 ];
 
@@ -50,5 +52,6 @@ export default {
   ProSelect,
   ProPassword,
   ProMaskLayer,
+  ProNumberRange,
   ProForm,
 };

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-29 09:39:39
- * @LastEditTime: 2021-04-08 15:48:28
+ * @LastEditTime: 2021-05-17 11:28:28
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/docs/markdown/src/index.js
@@ -15,6 +15,7 @@ import exampleProTabs from "./src/example-pro-tabs.md";
 import exampleProLayout from "./src/example-pro-layout.md";
 import exampleQuickStart from "./src/example-quick-start.md";
 import exampleIntroduce from "./src/example-introduce.md";
+import exampleProNumberRange from "./src/example-pro-number-range.md";
 
 const components = {
   exampleProRadioGroup,
@@ -24,6 +25,7 @@ const components = {
   exampleProBaseForm,
   exampleProTabs,
   exampleProLayout,
+  exampleProNumberRange,
   exampleQuickStart,
   exampleIntroduce,
 };

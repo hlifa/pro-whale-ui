@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-22 17:44:02
- * @LastEditTime: 2021-04-08 15:53:32
+ * @LastEditTime: 2021-05-17 11:15:52
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/src/App.vue
@@ -78,6 +78,11 @@
                   <el-menu-item index="example-pro-select"
                     ><el-link href="#ProSelect"
                       >ProSelect</el-link
+                    ></el-menu-item
+                  >
+                  <el-menu-item index="example-pro-number-range"
+                    ><el-link href="#ProNumberRange"
+                      >ProNumberRange</el-link
                     ></el-menu-item
                   >
                   <el-menu-item index="example-pro-base-form"
