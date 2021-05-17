@@ -9,6 +9,9 @@
 ```html
 <template>
   <div>
+    <el-select>
+      <el-option label="CN">China</el-option>
+    </el-select>
     <pro-number-range v-model="ageRange" :min="min" :max="max" size="small"></pro-number-range>
 
     <div><pre>{{ stringifyFormData }}</pre></div>

@@ -1,13 +1,13 @@
 <!--
  * @Author: your name
  * @Date: 2021-05-17 10:53:08
- * @LastEditTime: 2021-05-17 11:34:10
+ * @LastEditTime: 2021-05-17 14:12:10
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/packages/pro-number-range/src/number-range.vue
 -->
 <template>
-  <el-container>
+  <div class="pro-number-range">
     <el-input-number
       v-model="checked[0]"
       controls-position="right"
@@ -23,7 +23,7 @@
       :min="min"
       :max="max"
     ></el-input-number>
-  </el-container>
+  </div>
 </template>
 
 <script>
