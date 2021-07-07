@@ -1,14 +1,14 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-26 15:26:30
- * @LastEditTime: 2021-04-01 20:51:32
+ * @LastEditTime: 2021-07-07 11:33:56
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/packages/pro-form/src/drawer-form.vue
 -->
 
 <template>
-  <el-drawer :visible.sync="visible" v-bind="resolvedElDrawerProps">
+  <el-drawer :visible.sync="internalVisible" v-bind="resolvedElDrawerProps">
     <div class="pro-drawer__content">
       <pro-base-form
         v-bind="resolvedAttrs"
@@ -65,6 +65,14 @@ export default {
   },
 
   computed: {
+    internalVisible: {
+      get() {
+        return this.visible;
+      },
+      set(val) {
+        this.$emit("update:visible", val);
+      },
+    },
     resolvedElDrawerProps() {
       return { ...this.elDrawerPropsPreset, ...this.elDrawerProps };
     },
