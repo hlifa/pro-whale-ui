@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-26 15:23:34
- * @LastEditTime: 2021-04-08 14:28:16
+ * @LastEditTime: 2021-07-16 14:20:40
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/packages/pro-form/src/base-form.vue
@@ -22,12 +22,20 @@
         :ref="item.field"
         :style="{ display: item.hide ? 'none' : '' }"
       >
-        <component
-          v-if="item.component && !item.readonly"
-          :is="item.component"
-          v-model="model[item.field]"
-          v-bind="item.props"
-        ></component>
+        <template v-if="item.component && !item.readonly">
+          <component
+            v-if="item.trim"
+            :is="item.component"
+            v-model.trim="model[item.field]"
+            v-bind="item.props"
+          ></component>
+          <component
+            v-else
+            :is="item.component"
+            v-model="model[item.field]"
+            v-bind="item.props"
+          ></component>
+        </template>
         <template v-else>{{ model[item.field] }}</template>
         <pro-mask-layer v-if="item.disabled"></pro-mask-layer>
       </el-form-item>

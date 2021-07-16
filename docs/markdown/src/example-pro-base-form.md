@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-30 10:51:16
- * @LastEditTime: 2021-04-08 14:50:03
+ * @LastEditTime: 2021-07-16 14:24:06
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/docs/markdown/src/example-pro-base-form.md
@@ -53,6 +53,7 @@ export default {
           name: '用户名',
           field: 'username',
           rule: 'username', // 可省略，省略时使用`field`字段值
+          trim: true,
           component: 'el-input',
           props: { // 子组件的props
             placeholder: '请输入用户名',
