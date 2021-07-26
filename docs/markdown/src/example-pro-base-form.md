@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-30 10:51:16
- * @LastEditTime: 2021-07-16 14:24:06
+ * @LastEditTime: 2021-07-26 21:00:12
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/docs/markdown/src/example-pro-base-form.md
@@ -21,6 +21,7 @@
       :model="formData" 
       :rules="formRules" 
       :items="formItems"
+      :submitButtonLoading="submitButtonLoading"
       @onSubmit="onSubmit"
       @onValidateError="onValidateError"
     >
@@ -34,6 +35,7 @@
 export default {
   data() {
     return {
+      submitButtonLoading: false,
       formData: {
         username: '',
         password: '',
@@ -83,11 +85,15 @@ export default {
 
   methods: {
     onSubmit(form, formData) {
-      alert(
+      this.submitButtonLoading = true;
+      setTimeout(() => {
+        alert(
             "Reading to submit, form-data: `" +
               JSON.stringify(formData, null, 4) +
               "`"
           );
+        this.submitButtonLoading = false;
+      }, 2000);
     },
     onValidateError(form, formData) {
       alert('form-data validate error!');

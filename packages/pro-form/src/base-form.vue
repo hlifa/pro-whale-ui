@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-26 15:23:34
- * @LastEditTime: 2021-07-16 14:20:40
+ * @LastEditTime: 2021-07-26 20:57:29
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/packages/pro-form/src/base-form.vue
@@ -50,18 +50,21 @@
         :style="{ marginLeft: resolvedFormProps.labelWidth }"
       >
         <el-button
+          :loading="cancelButtonLoading"
           v-bind="resolvedCancelButtonProps"
           :class="[sizeClass ? 'el-button--' + sizeClass : '']"
           @click="onCancel"
           >{{ resolvedCancelButtonProps.cancelText }}</el-button
         >
         <el-button
+          :loading="submitButtonLoading"
           v-bind="resolvedSubmitButtonProps"
           :class="[sizeClass ? 'el-button--' + sizeClass : '']"
           @click="onSubmit"
           >{{ resolvedSubmitButtonProps.submitText }}</el-button
         >
         <el-button
+          :loading="resetButtonLoading"
           v-bind="resolvedResetButtonProps"
           :class="[sizeClass ? 'el-button--' + sizeClass : '']"
           @click="onReset"
@@ -161,6 +164,10 @@ export default {
       type: String,
       default: "left",
     },
+    submitButtonLoading: {
+      type: Boolean,
+      default: false,
+    },
     submitButtonProps: {
       type: Object,
       default() {
@@ -170,6 +177,10 @@ export default {
         };
       },
     },
+    resetButtonLoading: {
+      type: Boolean,
+      default: false,
+    },
     resetButtonProps: {
       type: Object,
       default() {
@@ -178,6 +189,10 @@ export default {
           resetText: "重置",
         };
       },
+    },
+    cancelButtonLoading: {
+      type: Boolean,
+      default: false,
     },
     cancelButtonProps: {
       type: Object,
@@ -205,6 +220,9 @@ export default {
 
   data() {
     return {
+      resovledResetButtonLoading: this.resetButtonLoading,
+      resovledSubmitButtonLoading: this.submitButtonLoading,
+      resovledCancelButtonLoading: this.cancelButtonLoading,
       mixin: {
         methods: {
           getField: function (fieldName) {
