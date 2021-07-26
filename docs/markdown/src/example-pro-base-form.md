@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-30 10:51:16
- * @LastEditTime: 2021-07-26 21:00:12
+ * @LastEditTime: 2021-07-26 21:09:23
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/docs/markdown/src/example-pro-base-form.md
@@ -1210,6 +1210,9 @@ export default {
 | cancel-button-props | 表单取消按钮属性，默认不可见 | Object | - | { type: "", cancelText: "取消", style: { display: 'none' } } | - |
 | cancel-default-submit | 取消提交按钮点击事件的默认行为: 校验表单数据，而是直接抛出事件由用户处理 | Boolean | - | false | - |
 | cancel-default-reset | 取消重置按钮点击事件的默认行为: 重置表单数据，而是直接抛出事件由用户处理 | Boolean | - | false | - |
+| submitButtonLoading | 提交按钮加载状态 | Boolean | - | false | - |
+| cancelButtonLoading | 取消按钮加载状态 | Boolean | - | false | - |
+| resetButtonLoading | 重置按钮加载状态 | Boolean | - | false | - |
 
 
 ## ProForm Events
