@@ -146,6 +146,11 @@ export default {
   methods: {
     handleChange(checked) {
       alert(`You selected is ${checked}`);
+      // if (checked === "0") {
+      //   this.options = [
+      //     { label: "0", name: "否" },
+      //   ];
+      // }
     }
   }
 }

@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-26 15:30:01
- * @LastEditTime: 2021-04-02 11:22:18
+ * @LastEditTime: 2021-08-06 09:52:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/packages/pro-radio-group/src/radio-group.vue
@@ -76,19 +76,19 @@ export default {
     if (isFunction(options)) {
       options()
         .then((result) => {
-          this.resolvedOptions = isArray(result) ? result : [];
+          this.initOptions = isArray(result) ? result : [];
         })
         .catch((error) => {
           throw error;
         });
     } else {
-      this.resolvedOptions = options;
+      this.initOptions = options;
     }
   },
 
   data() {
     return {
-      resolvedOptions: [],
+      initOptions: [],
     };
   },
 
@@ -100,6 +100,16 @@ export default {
       set(val) {
         this.$emit("change", val);
       },
+    },
+    resolvedOptions() {
+      let resolvedOptions = [];
+      const { options, initOptions } = this;
+      if (isFunction(options)) {
+        resolvedOptions = initOptions;
+      } else {
+        resolvedOptions = options;
+      }
+      return resolvedOptions;
     },
   },
 };
