@@ -1,24 +1,24 @@
 <!--
  * @Author: your name
- * @Date: 2021-04-01 14:37:25
- * @LastEditTime: 2021-08-10 19:58:57
+ * @Date: 2021-08-10 19:57:44
+ * @LastEditTime: 2021-08-10 19:59:57
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
- * @FilePath: /whale-ui/docs/markdown/src/example-pro-date-picker.md
+ * @FilePath: /whale-ui/docs/markdown/src/example-pro-datetime-range-picker.md
 -->
-# ProDateRangePicker
+# ProDatetimeRangePicker
 
-高阶日期范围选择器
+高阶日期时间范围选择器
 
 ## 基础用法
 
-:::snippet 在`pro-date-range-picker`上绑定`v-model`即可使用
+:::snippet 在`pro-datetime-range-picker`上绑定`v-model`即可使用
 
 ```html
 <template>
   <div class="example-container">
     <div>
-      <pro-date-range-picker v-model="value"></pro-date-range-picker>
+      <pro-datetime-range-picker v-model="value"></pro-datetime-range-picker>
     </div>
     <div>
       <pre>{{stringifyValue}}</pre>
@@ -45,15 +45,15 @@
 :::
 
 
-## ProDateRangePicker Attributes
+## ProDatetimeRangePicker Attributes
 | 参数 | 说明     | 类型   | 可选值 | 默认值 | 示例 |
 | ---- | -------- | ------ | ------ | ------ | ----- |
 | value / v-model | 绑定值 | date(DateTimePicker) / array(DateTimeRangePicker) | —      | —      | |
 
-## ProDateRangePicker Events
+## ProDatetimeRangePicker Events
 |事件名称	|说明	|回调参数 |
 |---|---|---|
 |change	|绑定值变化时触发的事件	|选择的时间范围值|
 
-## ProDateRangePicker Inherit Attributes
+## ProDatetimeRangePicker Inherit Attributes
 请参考[DateTimePicker Attributes](https://element.eleme.cn/#/zh-CN/component/datetime-picker#attributes)

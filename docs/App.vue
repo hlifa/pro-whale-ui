@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-22 17:44:02
- * @LastEditTime: 2021-05-17 11:15:52
+ * @LastEditTime: 2021-08-10 20:01:20
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/src/App.vue
@@ -73,6 +73,11 @@
                   <el-menu-item index="example-pro-date-picker"
                     ><el-link href="#ProDateRangePicker"
                       >ProDateRangePicker</el-link
+                    ></el-menu-item
+                  >
+                  <el-menu-item index="example-pro-datetime-picker"
+                    ><el-link href="#ProDatetimeRangePicker"
+                      >ProDatetimeRangePicker</el-link
                     ></el-menu-item
                   >
                   <el-menu-item index="example-pro-select"
