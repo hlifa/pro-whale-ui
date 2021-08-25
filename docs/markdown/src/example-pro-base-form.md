@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-30 10:51:16
- * @LastEditTime: 2021-07-26 21:09:23
+ * @LastEditTime: 2021-08-25 19:28:34
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/docs/markdown/src/example-pro-base-form.md
@@ -25,6 +25,15 @@
       @onSubmit="onSubmit"
       @onValidateError="onValidateError"
     >
+      <template v-slot:username>
+        <el-alert
+          title="用户名长度在2至20个字符之间"
+          type="warning">
+        </el-alert>
+      </template>
+      <template v-slot:password="{ slot }">
+        输入密码为 {{ slot }}
+      </template>  
     </pro-form>
     
     <div class="form-data-container"><pre>{{ stringifyFormData }}</pre></div>
@@ -1240,3 +1249,18 @@ export default {
 | props | 传递给表单项包裹的自定义组件的Attributes | Object | - | - | - |
 | onChange | 表单项包裹的自定义组件绑定值变化时触发的联动逻辑 | Function | - | - | - |
 | watch | 侦听其他表单项数据字段的变化，触发的联动逻辑  | Array | - | - | - |
+
+## onChange / watch 函数内部预设方法
+| 参数 | 说明     | 
+| ---- | -------- | 
+| getField(fieldName) | 获取表单字段的值 |
+| setField(fieldName, fieldValue) | 设置表单字段的值 |
+| getFormItem(fieldName) | 获取表单item组件dom元素 |
+| showFormItem(fieldName) | 显示表单item组件 | 
+| hideFormItem(fieldName) | 隐藏表单item组件 | 
+| showFormItems(Array fieldNames) | 批量显示表单item组件 | 
+| hideFormItem(Array fieldNames) | 批量隐藏表单item组件 | 
+| enableFormRule(fieldName) | 启动某个表单规则 | 
+| disableFormRule(fieldName) | 禁止某个表单规则 |
+| enableFormRules(Array fieldNames) | 启动多个表单规则 | 
+| disableFormRules(Array fieldNames) | 禁止多个表单规则 |
