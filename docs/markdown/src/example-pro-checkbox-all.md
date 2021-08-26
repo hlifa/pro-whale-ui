@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-04-01 14:37:25
- * @LastEditTime: 2021-04-08 19:25:15
+ * @LastEditTime: 2021-08-26 14:17:26
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/docs/markdown/src/example-pro-checkbox-all.md
@@ -30,7 +30,7 @@
   export default {
     data() {
       return {
-        value: ['Shanghai', 'Beijing', 'Guangzhou'],
+        value: ['Shanghai', 'Beijing', 'Guangzhou', 'Shenzhen'],
         options: [
           { label: "Shanghai", name: "上海" },
           { label: "Beijing", name: "北京" },

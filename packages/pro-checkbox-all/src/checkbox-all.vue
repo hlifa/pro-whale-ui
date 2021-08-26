@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-04-01 14:35:50
- * @LastEditTime: 2021-04-02 11:20:23
+ * @LastEditTime: 2021-08-26 14:15:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/packages/pro-checkbox-all/src/checkbox-all.vue
@@ -100,6 +100,7 @@ export default {
   data() {
     return {
       resolvedOptions: [],
+      checkedAllValue: false,
     };
   },
 
@@ -116,11 +117,18 @@ export default {
     } else {
       this.resolvedOptions = options;
     }
+
+    this.checkedAllValue = this.value.length === this.resolvedOptions.length;
   },
 
   computed: {
-    checkedAll() {
-      return this.value.length === this.resolvedOptions.length;
+    checkedAll: {
+      get() {
+        return this.checkedAllValue;
+      },
+      set(val) {
+        this.checkedAllValue = val;
+      },
     },
 
     checkedItems: {
@@ -128,6 +136,7 @@ export default {
         return this.value;
       },
       set(val) {
+        this.checkedAllValue = val.length === this.resolvedOptions.length;
         this.$emit("change", val);
       },
     },
