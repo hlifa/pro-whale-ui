@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-30 10:51:16
- * @LastEditTime: 2021-08-25 19:28:34
+ * @LastEditTime: 2021-08-26 10:00:25
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/docs/markdown/src/example-pro-base-form.md
@@ -28,12 +28,10 @@
       <template v-slot:username>
         <el-alert
           title="用户名长度在2至20个字符之间"
-          type="warning">
+          type="warning"
+          :closable="false">
         </el-alert>
-      </template>
-      <template v-slot:password="{ slot }">
-        输入密码为 {{ slot }}
-      </template>  
+      </template> 
     </pro-form>
     
     <div class="form-data-container"><pre>{{ stringifyFormData }}</pre></div>
