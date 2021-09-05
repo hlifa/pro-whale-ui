@@ -1,23 +1,11 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-26 15:26:30
- * @LastEditTime: 2021-07-07 11:33:56
+ * @LastEditTime: 2021-09-05 09:31:25
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/packages/pro-form/src/drawer-form.vue
 -->
-
-<template>
-  <el-drawer :visible.sync="internalVisible" v-bind="resolvedElDrawerProps">
-    <div class="pro-drawer__content">
-      <pro-base-form
-        v-bind="resolvedAttrs"
-        v-on="$listeners"
-        @onCancel="$emit('update:visible', false)"
-      ></pro-base-form>
-    </div>
-  </el-drawer>
-</template>
 
 <script>
 import ProBaseForm from "./base-form";
@@ -34,8 +22,31 @@ const attrsPreset = {
 };
 
 export default {
-  components: {
-    ProBaseForm,
+  render: function (h) {
+    const drawerProps = {
+      props: this.resolvedElDrawerProps,
+      on: {
+        "update:visible": this.updatevisible,
+      },
+    };
+    const baseFormProps = {
+      attrs: this.resolvedAttrs,
+      props: this.resolvedAttrs,
+      on: {
+        ...this.$listeners,
+        onCancel: this.hideDrawer,
+      },
+      scopedSlots: this.$scopedSlots,
+    };
+    return h("el-drawer", drawerProps, [
+      h(
+        "div",
+        {
+          class: "pro-drawer__content",
+        },
+        [h(ProBaseForm, baseFormProps)]
+      ),
+    ]);
   },
 
   inheritAttrs: false,
@@ -65,22 +76,27 @@ export default {
   },
 
   computed: {
-    internalVisible: {
-      get() {
-        return this.visible;
-      },
-      set(val) {
-        this.$emit("update:visible", val);
-      },
-    },
     resolvedElDrawerProps() {
-      return { ...this.elDrawerPropsPreset, ...this.elDrawerProps };
+      return {
+        ...this.elDrawerPropsPreset,
+        ...this.elDrawerProps,
+        visible: this.visible,
+      };
     },
     resolvedAttrs() {
       return {
         ...attrsPreset,
         ...this.$attrs,
       };
+    },
+  },
+
+  methods: {
+    updatevisible(val) {
+      this.$emit("update:visible", val);
+    },
+    hideDrawer() {
+      this.$emit("update:visible", false);
     },
   },
 };

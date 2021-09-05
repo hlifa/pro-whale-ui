@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-26 15:23:34
- * @LastEditTime: 2021-08-26 09:59:16
+ * @LastEditTime: 2021-09-04 18:07:22
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/packages/pro-form/src/base-form.vue
@@ -37,7 +37,6 @@
           ></component>
         </template>
         <template v-else>{{ model[item.field] }}</template>
-        <div></div>
         <slot :name="item.field"></slot>
         <pro-mask-layer v-if="item.disabled"></pro-mask-layer>
       </el-form-item>

@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-30 10:51:16
- * @LastEditTime: 2021-08-26 10:38:24
+ * @LastEditTime: 2021-09-05 09:32:13
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/docs/markdown/src/example-pro-base-form.md
@@ -986,12 +986,18 @@ export default {
       @onValidateError="onValidateError"
     >
       <template v-slot:username>
-        <!-- <el-alert
+        <el-alert
           title="用户名长度在2至20个字符之间"
           type="warning"
           :closable="false">
-        </el-alert> -->
-        hahaha
+        </el-alert>
+      </template> 
+      <template v-slot:password>
+        <el-alert
+          title="mima长度在2至20个字符之间"
+          type="warning"
+          :closable="false">
+        </el-alert>
       </template> 
     </pro-form>
     <div class="form-data-container"><pre>Layout: {{ layout }}</pre><pre>FormData: {{ stringifyFormData }}</pre></div>
