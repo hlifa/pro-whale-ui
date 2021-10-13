@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-26 15:26:30
- * @LastEditTime: 2021-09-05 09:31:09
+ * @LastEditTime: 2021-10-13 17:33:21
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/packages/pro-form/src/modal-form.vue
@@ -88,8 +88,9 @@ export default {
     updateVisible(val) {
       this.$emit("update:visible", val);
     },
-    hideDialog() {
+    hideDialog(elForm) {
       this.$emit("update:visible", false);
+      this.$emit("onCancel", elForm);
     },
   },
 };
