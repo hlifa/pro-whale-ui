@@ -1,8 +1,8 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-30 10:51:16
- * @LastEditTime: 2021-09-05 09:32:13
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-06-21 16:06:26
+ * @LastEditors: beeto_lifa beeto_lifa@staff.weibo.com
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/docs/markdown/src/example-pro-base-form.md
 -->
@@ -22,6 +22,7 @@
       :rules="formRules" 
       :items="formItems"
       :submitButtonLoading="submitButtonLoading"
+      :cancelButtonProps="{ class: 'el-button--primary', style: {display: '', float: 'right'} }"
       @onSubmit="onSubmit"
       @onValidateError="onValidateError"
     >
