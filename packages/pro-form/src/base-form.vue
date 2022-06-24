@@ -1,8 +1,8 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-26 15:23:34
- * @LastEditTime: 2022-06-21 15:43:39
- * @LastEditors: beeto_lifa beeto_lifa@staff.weibo.com
+ * @LastEditTime: 2022-06-24 16:08:25
+ * @LastEditors: hlifa hu2014jesse@gmail.com
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/packages/pro-form/src/base-form.vue
 -->
@@ -53,7 +53,10 @@
         <el-button
           :loading="cancelButtonLoading"
           v-bind="resolvedCancelButtonProps"
-          :class="[sizeClass ? 'el-button--' + sizeClass : '', resolvedCancelButtonProps.class]"
+          :class="[
+            sizeClass ? 'el-button--' + sizeClass : '',
+            resolvedCancelButtonProps.class,
+          ]"
           @click="onCancel"
           >{{ resolvedCancelButtonProps.cancelText }}</el-button
         >
