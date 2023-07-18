@@ -1,8 +1,8 @@
 <!--
  * @Author: your name
  * @Date: 2021-04-01 14:35:50
- * @LastEditTime: 2021-08-26 14:15:44
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2023-07-18 16:21:39
+ * @LastEditors: hlifa hu2014jesse@gmail.com
  * @Description: In User Settings Edit
  * @FilePath: /whale-ui/packages/pro-checkbox-all/src/checkbox-all.vue
 -->
@@ -110,15 +110,16 @@ export default {
       options()
         .then((result) => {
           this.resolvedOptions = isArray(result) ? result : [];
+          this.checkedAllValue =
+            this.value.length === this.resolvedOptions.length;
         })
         .catch((error) => {
           throw error;
         });
     } else {
       this.resolvedOptions = options;
+      this.checkedAllValue = this.value.length === this.resolvedOptions.length;
     }
-
-    this.checkedAllValue = this.value.length === this.resolvedOptions.length;
   },
 
   computed: {
